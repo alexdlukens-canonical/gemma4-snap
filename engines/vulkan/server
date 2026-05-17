@@ -2,4 +2,7 @@
 
 sleep_idle_seconds="$(modelctl get sleep-idle-seconds)"
 
+# To find the intel.icd file, containing the path to libigdrcl.so
+export OCL_ICD_VENDORS=$SNAP/etc/OpenCL/vendors
+
 exec "$SNAP_COMPONENTS/llamacpp-vulkan/server" --sleep-idle-seconds "$sleep_idle_seconds" "$@"
